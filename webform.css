@@ -1,10 +1,10 @@
 /* =====================================================
-   Origami Webform – Smoove Style
-   External CSS (Redirect)
+   Origami Webform – Smoove Style (STABLE)
+   External CSS – FULL OVERRIDE FILE
    ===================================================== */
 
-/* ---------- Page ---------- */
-body {
+/* ---------- Page Base ---------- */
+html, body {
   margin: 0;
   padding: 0;
   background: #f4f6fb;
@@ -12,17 +12,29 @@ body {
   color: #1f2937;
 }
 
-/* ---------- Step Wrapper ---------- */
+/* ---------- Origami Step Wrapper (DO NOT LIMIT WIDTH) ---------- */
 .step-content {
-  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+}
+
+/* ---------- Card (inner content of step) ---------- */
+/* Origami תמיד עוטף את התוכן באלמנט פנימי – אנחנו מנצלים את זה */
+.step-content > div,
+.step-content > form,
+.step-content > section {
+  max-width: 640px;
   margin: 40px auto;
   background: #ffffff;
   padding: 32px 28px;
   border-radius: 18px;
   box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+  box-sizing: border-box;
 }
 
-/* ---------- Hide Labels (Placeholder Only) ---------- */
+/* ---------- Hide Labels (Placeholder UX) ---------- */
 .step-content label {
   display: none !important;
 }
@@ -36,7 +48,7 @@ body {
 .step-content input[type="password"],
 .step-content textarea,
 .step-content select {
-  width: 100%;
+  width: 100% !important;
   box-sizing: border-box;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
@@ -62,23 +74,35 @@ body {
   box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
 }
 
-/* ---------- Checkbox & Radio ---------- */
+/* ---------- Checkbox / Radio (do not break layout) ---------- */
 .step-content input[type="checkbox"],
 .step-content input[type="radio"] {
   transform: scale(1.1);
   margin-inline-end: 8px;
 }
 
-/* ---------- Spacing ---------- */
+/* ---------- Field Spacing ---------- */
 .step-content .form-group,
 .step-content .field,
 .step-content .row {
   margin-bottom: 14px;
 }
 
-/* ---------- Next Button (Smoove Style) ---------- */
-.step-content .step-btn {
+/* ---------- Actions / Buttons Wrapper ---------- */
+.step-content .step-actions,
+.step-content .buttons,
+.step-content [class*="action"] {
   width: 100%;
+  display: block !important;
+  text-align: center !important;
+}
+
+/* ---------- Next Button (Smoove-like) ---------- */
+.step-content .step-btn {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100%;
+  margin: 24px auto 0 auto !important;
   border: none !important;
   border-radius: 14px;
   padding: 14px 18px;
@@ -98,18 +122,19 @@ body {
   transform: translateY(1px);
 }
 
-/* ---------- Disabled ---------- */
+/* ---------- Disabled Button ---------- */
 .step-content .step-btn[disabled] {
   background: #9ca3af !important;
   cursor: not-allowed;
 }
 
-/* ---------- Mobile ---------- */
+/* ---------- Mobile Only ---------- */
 @media (max-width: 600px) {
-  .step-content {
+  .step-content > div,
+  .step-content > form,
+  .step-content > section {
     margin: 20px 12px;
     padding: 22px 18px;
     border-radius: 16px;
   }
 }
-
