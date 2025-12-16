@@ -1,83 +1,98 @@
 /* =====================================================
-   Origami Webform – Smoove Style
-   DOM-Accurate Override (Based on Real HTML)
+   Origami Webform – Smoove Layout FIX
+   Full layout override (Bootstrap neutralized)
    ===================================================== */
 
 /* ---------- Page ---------- */
 html, body {
   margin: 0;
   padding: 0;
-  background: #f4f6fb;
+  background: #eef5f7;
   font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   color: #1f2937;
 }
 
-/* ---------- REAL ROOT ---------- */
-#entity-container {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-/* ---------- Remove Origami Grid Logic ---------- */
-.form_data_element_wrap {
-  width: 100% !important;
+/* ---------- Kill Bootstrap width logic ---------- */
+.container,
+.container-fluid,
+.row,
+[class*="col-"] {
   max-width: 100% !important;
-  flex: 0 0 100% !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-/* ---------- Step Content Wrapper ---------- */
+/* ---------- Real root ---------- */
+#entity-container {
+  width: 100%;
+}
+
+/* ---------- Stepper (top progress) ---------- */
+.step-app-header,
+.step-header,
+.steps-header {
+  max-width: 760px;
+  margin: 40px auto 20px auto;
+}
+
+/* ---------- Step content ---------- */
 .step-content {
   width: 100%;
 }
 
-/* ---------- One Card Per Step ---------- */
+/* ---------- Card per step ---------- */
 .step-tab-panel {
-  max-width: 720px;
-  margin: 40px auto;
+  max-width: 760px;
+  margin: 0 auto 60px auto;
   background: #ffffff;
-  padding: 32px 28px;
-  border-radius: 18px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+  padding: 36px 32px;
+  border-radius: 22px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.10);
   box-sizing: border-box;
 }
 
-/* ---------- Remove Inner White Noise ---------- */
-.field_group_body {
+/* ---------- Remove inner wrappers noise ---------- */
+.field_group_body,
+.form_data_element_wrap {
   padding: 0 !important;
+  margin: 0 !important;
   background: transparent !important;
-  border-radius: 0 !important;
+  border: none !important;
+  width: 100% !important;
 }
 
-/* ---------- Hide Labels ---------- */
+/* ---------- Hide labels ---------- */
 .field_name,
-.form-label {
+.form-label,
+label {
   display: none !important;
 }
 
 /* ---------- Inputs ---------- */
 input.form-control,
-.step-content input[type="text"],
-.step-content input[type="email"],
-.step-content input[type="tel"],
-.step-content input[type="number"],
-.step-content input[type="date"],
+textarea.form-control,
+select.form-control,
+.step-content input,
 .step-content textarea,
 .step-content select {
   width: 100% !important;
-  box-sizing: border-box;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 14px 16px;
+  border: 1px solid #dce1e7;
+  border-radius: 16px;
+  padding: 15px 18px;
   font-size: 16px;
   background: #ffffff;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   outline: none;
+  box-sizing: border-box;
   transition: border-color .15s ease, box-shadow .15s ease;
 }
 
 /* ---------- Placeholder ---------- */
 ::placeholder {
-  color: #9ca3af;
+  color: #9aa3ad;
 }
 
 /* ---------- Focus ---------- */
@@ -88,55 +103,42 @@ select:focus {
   box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
 }
 
-/* ---------- Upload Fields ---------- */
-.upload-file,
-.file-upload-container {
-  width: 100% !important;
-}
-
-/* ---------- Step Footer (Buttons Area) ---------- */
+/* ---------- Footer / buttons ---------- */
 .step-footer {
-  max-width: 720px;
-  margin: 0 auto 40px auto;
+  max-width: 760px;
+  margin: 0 auto 60px auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 16px;
 }
 
 /* ---------- Buttons ---------- */
 .step-btn {
   width: 100% !important;
-  border-radius: 14px !important;
-  padding: 14px 18px !important;
+  border-radius: 16px !important;
+  padding: 15px 20px !important;
   font-size: 16px !important;
   font-weight: 700 !important;
   background: #2563eb !important;
   color: #ffffff !important;
   border: none !important;
+  cursor: pointer;
 }
 
-/* Prev / Next containers */
-.prev-btn,
-.next-btn {
-  flex: 1;
-  padding: 0 8px;
+.step-btn:active {
+  transform: translateY(1px);
 }
 
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
-  .step-tab-panel {
-    margin: 20px 12px;
-    padding: 22px 18px;
+  .step-app-header,
+  .step-tab-panel,
+  .step-footer {
+    max-width: 100%;
+    margin-left: 12px;
+    margin-right: 12px;
   }
 
   .step-footer {
     flex-direction: column;
-    gap: 12px;
-  }
-
-  .prev-btn,
-  .next-btn {
-    width: 100%;
-    padding: 0;
   }
 }
