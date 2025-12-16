@@ -1,9 +1,9 @@
 /* =====================================================
-   Origami Webform – Smoove Style (STABLE)
-   External CSS – FULL OVERRIDE FILE
+   Origami Webform – Smoove Style
+   DOM-Accurate Override (Based on Real HTML)
    ===================================================== */
 
-/* ---------- Page Base ---------- */
+/* ---------- Page ---------- */
 html, body {
   margin: 0;
   padding: 0;
@@ -12,20 +12,27 @@ html, body {
   color: #1f2937;
 }
 
-/* ---------- Origami Step Wrapper (DO NOT LIMIT WIDTH) ---------- */
-.step-content {
-  width: 100%;
+/* ---------- REAL ROOT ---------- */
+#entity-container {
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0;
-  background: transparent;
 }
 
-/* ---------- Card (inner content of step) ---------- */
-/* Origami תמיד עוטף את התוכן באלמנט פנימי – אנחנו מנצלים את זה */
-.step-content > div,
-.step-content > form,
-.step-content > section {
-  max-width: 640px;
+/* ---------- Remove Origami Grid Logic ---------- */
+.form_data_element_wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* ---------- Step Content Wrapper ---------- */
+.step-content {
+  width: 100%;
+}
+
+/* ---------- One Card Per Step ---------- */
+.step-tab-panel {
+  max-width: 720px;
   margin: 40px auto;
   background: #ffffff;
   padding: 32px 28px;
@@ -34,18 +41,26 @@ html, body {
   box-sizing: border-box;
 }
 
-/* ---------- Hide Labels (Placeholder UX) ---------- */
-.step-content label {
+/* ---------- Remove Inner White Noise ---------- */
+.field_group_body {
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* ---------- Hide Labels ---------- */
+.field_name,
+.form-label {
   display: none !important;
 }
 
 /* ---------- Inputs ---------- */
+input.form-control,
 .step-content input[type="text"],
 .step-content input[type="email"],
 .step-content input[type="tel"],
 .step-content input[type="number"],
 .step-content input[type="date"],
-.step-content input[type="password"],
 .step-content textarea,
 .step-content select {
   width: 100% !important;
@@ -61,80 +76,67 @@ html, body {
 }
 
 /* ---------- Placeholder ---------- */
-.step-content ::placeholder {
+::placeholder {
   color: #9ca3af;
-  font-weight: 400;
 }
 
 /* ---------- Focus ---------- */
-.step-content input:focus,
-.step-content textarea:focus,
-.step-content select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
 }
 
-/* ---------- Checkbox / Radio (do not break layout) ---------- */
-.step-content input[type="checkbox"],
-.step-content input[type="radio"] {
-  transform: scale(1.1);
-  margin-inline-end: 8px;
-}
-
-/* ---------- Field Spacing ---------- */
-.step-content .form-group,
-.step-content .field,
-.step-content .row {
-  margin-bottom: 14px;
-}
-
-/* ---------- Actions / Buttons Wrapper ---------- */
-.step-content .step-actions,
-.step-content .buttons,
-.step-content [class*="action"] {
-  width: 100%;
-  display: block !important;
-  text-align: center !important;
-}
-
-/* ---------- Next Button (Smoove-like) ---------- */
-.step-content .step-btn {
-  display: block !important;
+/* ---------- Upload Fields ---------- */
+.upload-file,
+.file-upload-container {
   width: 100% !important;
-  max-width: 100%;
-  margin: 24px auto 0 auto !important;
-  border: none !important;
-  border-radius: 14px;
-  padding: 14px 18px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
+}
+
+/* ---------- Step Footer (Buttons Area) ---------- */
+.step-footer {
+  max-width: 720px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- Buttons ---------- */
+.step-btn {
+  width: 100% !important;
+  border-radius: 14px !important;
+  padding: 14px 18px !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
   background: #2563eb !important;
   color: #ffffff !important;
-  transition: background .15s ease, transform .05s ease;
+  border: none !important;
 }
 
-.step-content .step-btn:hover {
-  background: #1d4ed8 !important;
+/* Prev / Next containers */
+.prev-btn,
+.next-btn {
+  flex: 1;
+  padding: 0 8px;
 }
 
-.step-content .step-btn:active {
-  transform: translateY(1px);
-}
-
-/* ---------- Disabled Button ---------- */
-.step-content .step-btn[disabled] {
-  background: #9ca3af !important;
-  cursor: not-allowed;
-}
-
-/* ---------- Mobile Only ---------- */
-@media (max-width: 600px) {
-  .step-content > div,
-  .step-content > form,
-  .step-content > section {
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+  .step-tab-panel {
     margin: 20px 12px;
     padding: 22px 18px;
-    border-radius: 16px;
+  }
+
+  .step-footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .prev-btn,
+  .next-btn {
+    width: 100%;
+    padding: 0;
   }
 }
