@@ -1,6 +1,5 @@
 /* =====================================================
-   Origami Webform – Smoove Layout FINAL FIX
-   Locks stepper + form to same width
+   Origami Webform – CLEAN FLOW (No Stepper)
    ===================================================== */
 
 html, body {
@@ -10,7 +9,7 @@ html, body {
   font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 }
 
-/* ---------- Kill Bootstrap ---------- */
+/* ---------- Kill Bootstrap noise ---------- */
 .container,
 .container-fluid,
 .row,
@@ -21,40 +20,27 @@ html, body {
   margin: 0 !important;
 }
 
-/* ---------- Root ---------- */
-#entity-container {
-  width: 100%;
-}
-
 /* =====================================================
-   🔥 STEP 1: LOCK STEPPER WIDTH
+   🔥 REMOVE STEPPER COMPLETELY
    ===================================================== */
 
-/* full-width background stays */
-.step-app {
-  width: 100%;
-}
-
-/* center the stepper itself */
+/* top steps bar */
 .step-steps {
-  max-width: 760px !important;
-  margin: 40px auto 30px auto !important;
-  display: flex !important;
-  justify-content: space-between !important;
+  display: none !important;
 }
 
-/* prevent spreading */
-.step-steps li {
-  flex: 0 0 auto !important;
+/* bottom bullets */
+.step-footer ul {
+  display: none !important;
 }
 
 /* =====================================================
-   🔥 STEP 2: FORM CARD
+   FORM CARD
    ===================================================== */
 
 .step-tab-panel {
   max-width: 760px;
-  margin: 0 auto 60px auto;
+  margin: 40px auto 60px auto;
   background: #ffffff;
   padding: 36px 32px;
   border-radius: 22px;
@@ -63,7 +49,7 @@ html, body {
 }
 
 /* =====================================================
-   🔥 STEP 3: CLEAN INNER NOISE
+   INNER CLEANUP
    ===================================================== */
 
 .field_group_body,
@@ -75,7 +61,7 @@ html, body {
 }
 
 /* =====================================================
-   🔥 STEP 4: PLACEHOLDER INSTEAD OF LABEL
+   PLACEHOLDER INSTEAD OF LABEL
    ===================================================== */
 
 .field_name,
@@ -85,7 +71,7 @@ label {
 }
 
 /* =====================================================
-   🔥 INPUTS
+   INPUTS
    ===================================================== */
 
 input,
@@ -114,7 +100,7 @@ select:focus {
 }
 
 /* =====================================================
-   🔥 FOOTER / BUTTONS
+   FOOTER BUTTONS
    ===================================================== */
 
 .step-footer {
@@ -124,6 +110,7 @@ select:focus {
   gap: 16px;
 }
 
+/* previous / next / submit */
 .step-btn {
   width: 100% !important;
   border-radius: 16px !important;
@@ -135,12 +122,16 @@ select:focus {
   border: none !important;
 }
 
+/* hide empty prev container spacing */
+.prev-btn:empty {
+  display: none;
+}
+
 /* =====================================================
-   🔥 MOBILE
+   MOBILE
    ===================================================== */
 
 @media (max-width: 768px) {
-  .step-steps,
   .step-tab-panel,
   .step-footer {
     max-width: 100%;
