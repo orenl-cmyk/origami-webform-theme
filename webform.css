@@ -1,49 +1,57 @@
 /* =====================================================
-   Origami Webform – Smoove Layout FIX
-   Full layout override (Bootstrap neutralized)
+   Origami Webform – Smoove Layout FINAL FIX
+   Locks stepper + form to same width
    ===================================================== */
 
-/* ---------- Page ---------- */
 html, body {
   margin: 0;
   padding: 0;
   background: #eef5f7;
   font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  color: #1f2937;
 }
 
-/* ---------- Kill Bootstrap width logic ---------- */
+/* ---------- Kill Bootstrap ---------- */
 .container,
 .container-fluid,
 .row,
 [class*="col-"] {
   max-width: 100% !important;
   width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* ---------- Real root ---------- */
+/* ---------- Root ---------- */
 #entity-container {
   width: 100%;
 }
 
-/* ---------- Stepper (top progress) ---------- */
-.step-app-header,
-.step-header,
-.steps-header {
-  max-width: 760px;
-  margin: 40px auto 20px auto;
-}
+/* =====================================================
+   🔥 STEP 1: LOCK STEPPER WIDTH
+   ===================================================== */
 
-/* ---------- Step content ---------- */
-.step-content {
+/* full-width background stays */
+.step-app {
   width: 100%;
 }
 
-/* ---------- Card per step ---------- */
+/* center the stepper itself */
+.step-steps {
+  max-width: 760px !important;
+  margin: 40px auto 30px auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+/* prevent spreading */
+.step-steps li {
+  flex: 0 0 auto !important;
+}
+
+/* =====================================================
+   🔥 STEP 2: FORM CARD
+   ===================================================== */
+
 .step-tab-panel {
   max-width: 760px;
   margin: 0 auto 60px auto;
@@ -54,30 +62,35 @@ html, body {
   box-sizing: border-box;
 }
 
-/* ---------- Remove inner wrappers noise ---------- */
+/* =====================================================
+   🔥 STEP 3: CLEAN INNER NOISE
+   ===================================================== */
+
 .field_group_body,
 .form_data_element_wrap {
+  width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
   background: transparent !important;
-  border: none !important;
-  width: 100% !important;
 }
 
-/* ---------- Hide labels ---------- */
+/* =====================================================
+   🔥 STEP 4: PLACEHOLDER INSTEAD OF LABEL
+   ===================================================== */
+
 .field_name,
 .form-label,
 label {
   display: none !important;
 }
 
-/* ---------- Inputs ---------- */
-input.form-control,
-textarea.form-control,
-select.form-control,
-.step-content input,
-.step-content textarea,
-.step-content select {
+/* =====================================================
+   🔥 INPUTS
+   ===================================================== */
+
+input,
+textarea,
+select {
   width: 100% !important;
   border: 1px solid #dce1e7;
   border-radius: 16px;
@@ -85,25 +98,25 @@ select.form-control,
   font-size: 16px;
   background: #ffffff;
   margin-bottom: 18px;
-  outline: none;
   box-sizing: border-box;
-  transition: border-color .15s ease, box-shadow .15s ease;
 }
 
-/* ---------- Placeholder ---------- */
 ::placeholder {
   color: #9aa3ad;
 }
 
-/* ---------- Focus ---------- */
 input:focus,
 textarea:focus,
 select:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
+  outline: none;
 }
 
-/* ---------- Footer / buttons ---------- */
+/* =====================================================
+   🔥 FOOTER / BUTTONS
+   ===================================================== */
+
 .step-footer {
   max-width: 760px;
   margin: 0 auto 60px auto;
@@ -111,7 +124,6 @@ select:focus {
   gap: 16px;
 }
 
-/* ---------- Buttons ---------- */
 .step-btn {
   width: 100% !important;
   border-radius: 16px !important;
@@ -121,16 +133,14 @@ select:focus {
   background: #2563eb !important;
   color: #ffffff !important;
   border: none !important;
-  cursor: pointer;
 }
 
-.step-btn:active {
-  transform: translateY(1px);
-}
+/* =====================================================
+   🔥 MOBILE
+   ===================================================== */
 
-/* ---------- Mobile ---------- */
 @media (max-width: 768px) {
-  .step-app-header,
+  .step-steps,
   .step-tab-panel,
   .step-footer {
     max-width: 100%;
