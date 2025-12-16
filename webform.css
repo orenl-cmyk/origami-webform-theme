@@ -1,1 +1,115 @@
+/* =====================================================
+   Origami Webform – Smoove Style
+   External CSS (Redirect)
+   ===================================================== */
+
+/* ---------- Page ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f6fb;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  color: #1f2937;
+}
+
+/* ---------- Step Wrapper ---------- */
+.step-content {
+  max-width: 520px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 32px 28px;
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+/* ---------- Hide Labels (Placeholder Only) ---------- */
+.step-content label {
+  display: none !important;
+}
+
+/* ---------- Inputs ---------- */
+.step-content input[type="text"],
+.step-content input[type="email"],
+.step-content input[type="tel"],
+.step-content input[type="number"],
+.step-content input[type="date"],
+.step-content input[type="password"],
+.step-content textarea,
+.step-content select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 16px;
+  background: #ffffff;
+  margin-bottom: 16px;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+/* ---------- Placeholder ---------- */
+.step-content ::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+/* ---------- Focus ---------- */
+.step-content input:focus,
+.step-content textarea:focus,
+.step-content select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
+}
+
+/* ---------- Checkbox & Radio ---------- */
+.step-content input[type="checkbox"],
+.step-content input[type="radio"] {
+  transform: scale(1.1);
+  margin-inline-end: 8px;
+}
+
+/* ---------- Spacing ---------- */
+.step-content .form-group,
+.step-content .field,
+.step-content .row {
+  margin-bottom: 14px;
+}
+
+/* ---------- Next Button (Smoove Style) ---------- */
+.step-content .step-btn {
+  width: 100%;
+  border: none !important;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #2563eb !important;
+  color: #ffffff !important;
+  transition: background .15s ease, transform .05s ease;
+}
+
+.step-content .step-btn:hover {
+  background: #1d4ed8 !important;
+}
+
+.step-content .step-btn:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Disabled ---------- */
+.step-content .step-btn[disabled] {
+  background: #9ca3af !important;
+  cursor: not-allowed;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .step-content {
+    margin: 20px 12px;
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+}
 
